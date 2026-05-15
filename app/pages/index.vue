@@ -92,10 +92,14 @@ const services = [
         ]
     }
 ]
+
+const goToCart = () => {
+    return navigateTo('/cart')
+}
 </script>
 
 <template>
-    <main class="bg-background">
+    <main>
         <section class="max-w-full">
             <UCarousel v-slot="{ item }" :items="banners" class="w-full">
                 <div class="max-w-lg px-4 py-6">
@@ -165,7 +169,7 @@ const services = [
 
                                 <template #body>
                                     <div class="space-y-6 p-2">
-                                        <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-4">
+                                        <div class="bg-gray-100 rounded-xl p-4">
                                             <div class="flex justify-between items-start mb-5">
                                                 <div>
                                                     <h2 class="text-xl font-bold">Photocopy</h2>
@@ -173,24 +177,17 @@ const services = [
                                                         High quality photocopy service for documents
                                                     </p>
                                                 </div>
-                                                <UBadge color="warning" variant="soft">
-                                                    File Required
-                                                </UBadge>
                                             </div>
 
                                             <label
-                                                class="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-primary/30 rounded-2xl cursor-pointer bg-white hover:bg-primary/5 hover:border-primary transition-all duration-300">
-
+                                                class="flex flex-col items-center justify-center w-full h-28 border-2 border-dashed border-primary/30 rounded-2xl cursor-pointer bg-white hover:border-primary transition-all duration-300">
                                                 <UIcon name="i-lucide-upload-cloud" class="w-12 h-12 text-primary" />
-
                                                 <p class="text-sm font-medium text-gray-700">
                                                     Click to upload file
                                                 </p>
-
                                                 <p class="text-xs text-gray-500 mt-1">
                                                     PDF, JPG, PNG (Max 10MB)
                                                 </p>
-
                                                 <input type="file" class="hidden" accept=".pdf,.jpg,.jpeg,.png" />
                                             </label>
                                         </div>
@@ -232,14 +229,13 @@ const services = [
                                             </div>
                                         </div>
 
-
-                                        <UButton block size="lg" color="primary" class="rounded-xl">
+                                        <button @click="goToCart"
+                                            class="w-full bg-primary text-white px-4 py-2 rounded">
                                             Add to Cart
-                                        </UButton>
+                                        </button>
                                     </div>
                                 </template>
                             </UModal>
-
                         </div>
                     </div>
                 </div>

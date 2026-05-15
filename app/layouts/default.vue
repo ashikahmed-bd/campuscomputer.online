@@ -2,7 +2,7 @@
 
 <template>
     <Header />
-    <main class="bg-gray-300 max-w-sm mx-auto pb-16">
+    <main class="bg-background min-h-screen max-w-sm mx-auto pb-16">
         <slot />
     </main>
     <Footer />

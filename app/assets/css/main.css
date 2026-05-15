@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100..900&display=swap');
 
 @import "tailwindcss";
 @import "@nuxt/ui";
@@ -20,9 +20,9 @@
     --color-danger: #ff4040;
     --color-info: #1c8bef;
 
-    --font-heading: "Baloo Da 2", sans-serif;
-    --font-body: "Baloo Da 2", sans-serif;
-    --font-sans: "Baloo Da 2", sans-serif;
+    --font-heading: "Noto Sans Bengali", sans-serif;
+    --font-body: "Noto Sans Bengali", sans-serif;
+    --font-sans: "Noto Sans Bengali", sans-serif;
 }
 
 @layer base {
