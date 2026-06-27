@@ -9,16 +9,17 @@
                 <h4 class="text-xs font-semibold">Home</h4>
             </NuxtLink>
 
-            <NuxtLink to="/categories" active-class="text-primary" exact-active-class="text-primary"
-                class="flex flex-col items-center gap-1">
-                <UIcon name="i-lucide-layout-list" class="size-5 " />
-                <h4 class="text-xs font-semibold">categories</h4>
-            </NuxtLink>
 
             <NuxtLink to="/services" active-class="text-primary" exact-active-class="text-primary"
                 class="flex flex-col items-center gap-1">
                 <UIcon name="i-lucide-component" class="size-5 " />
                 <h4 class="text-xs font-semibold">Services</h4>
+            </NuxtLink>
+
+            <NuxtLink to="/orders" active-class="text-primary" exact-active-class="text-primary"
+                class="flex flex-col items-center gap-1">
+                <UIcon name="i-lucide-layout-list" class="size-5 " />
+                <h4 class="text-xs font-semibold">Orders</h4>
             </NuxtLink>
 
             <NuxtLink to="/account" active-class="text-primary" exact-active-class="text-primary"

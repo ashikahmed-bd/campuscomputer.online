@@ -5,13 +5,12 @@
 
 @theme {
     --color-background: #f8fafc;
-    --color-dark: #000036;
 
     --color-heading: #16a34a;
-    --color-body: #f8fafc;
+    --color-body: #2f2d40;
     --color-placeholder: #64748b;
 
-    --color-primary: #00eff1;
+    --color-primary: #372aac;
     --color-light: #ffe4e6;
     --color-border: #ededed;
 
