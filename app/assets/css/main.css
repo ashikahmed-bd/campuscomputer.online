@@ -6,7 +6,7 @@
 @theme {
     --color-background: #f8fafc;
 
-    --color-heading: #16a34a;
+    --color-title: #16a34a;
     --color-body: #2f2d40;
     --color-placeholder: #64748b;
 
@@ -19,7 +19,7 @@
     --color-danger: #ff4040;
     --color-info: #1c8bef;
 
-    --font-heading: "Noto Sans Bengali", sans-serif;
+    --font-title: "Noto Sans Bengali", sans-serif;
     --font-body: "Noto Sans Bengali", sans-serif;
     --font-sans: "Noto Sans Bengali", sans-serif;
 }

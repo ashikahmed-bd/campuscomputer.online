@@ -1,26 +1,44 @@
 <script setup>
 defineProps({
-    message: {
+    title: {
         type: String,
-        default: 'Something went wrong.'
+        default: "Something went wrong"
+    },
+
+    description: {
+        type: String,
+        default: "Please try again later."
+    },
+
+    retry: {
+        type: Function,
+        default: null
     }
 })
-
-const emit = defineEmits(['retry'])
 </script>
 
 <template>
-    <div class="py-20 text-center">
+    <ClientOnly>
+        <div class="flex min-h-screen flex-col items-center justify-center px-4 text-center">
+            <div class="mb-4 flex size-16 items-center justify-center rounded-full bg-red-50">
+                <Icon name="heroicons:exclamation-triangle" class="size-8 text-red-500" />
+            </div>
 
-        <UIcon name="i-heroicons-exclamation-triangle" class="size-14 text-red-500 mx-auto" />
+            <h2 class="text-lg font-semibold">
+                {{ title }}
+            </h2>
 
-        <h2 class="mt-4 text-lg font-semibold">
-            {{ message }}
-        </h2>
+            <p class="mt-2 max-w-md text-sm text-muted-foreground">
+                {{ description }}
+            </p>
 
-        <UButton class="mt-6" @click="emit('retry')">
-            Try Again
-        </UButton>
+            <button v-if="retry"
+                class="mt-6 rounded bg-primary px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                @click="retry">
+                Try Again
+            </button>
 
-    </div>
+            <slot />
+        </div>
+    </ClientOnly>
 </template>
