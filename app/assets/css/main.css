@@ -1,59 +1,125 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100..900&display=swap");
 
 @import "tailwindcss";
 @import "@nuxt/ui";
 
 @theme {
-    --color-background: #f8fafc;
+  --color-background: #f8fafc;
+  --color-dark: #0f172b;
 
-    --color-title: #16a34a;
-    --color-body: #2f2d40;
-    --color-placeholder: #64748b;
+  --color-title: #16a34a;
+  --color-body: #2f2d40;
+  --color-placeholder: #64748b;
 
-    --color-primary: #372aac;
-    --color-light: #ffe4e6;
-    --color-border: #ededed;
+  --color-primary: #372aac;
+  --color-light: #ffe4e6;
+  --color-border: #ededed;
 
-    --color-success: #0e9a5f;
-    --color-warning: #fdae1c;
-    --color-danger: #ff4040;
-    --color-info: #1c8bef;
+  --color-success: #0e9a5f;
+  --color-warning: #fdae1c;
+  --color-danger: #ff4040;
+  --color-info: #1c8bef;
 
-    --font-title: "Noto Sans Bengali", sans-serif;
-    --font-body: "Noto Sans Bengali", sans-serif;
-    --font-sans: "Noto Sans Bengali", sans-serif;
+  --font-title: "Noto Sans Bengali", sans-serif;
+  --font-body: "Noto Sans Bengali", sans-serif;
+  --font-sans: "Noto Sans Bengali", sans-serif;
 }
 
 @layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 
-    *,
-    ::after,
-    ::before,
-    ::backdrop,
-    ::file-selector-button {
-        border-color: var(--color-gray-200, currentColor);
-    }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
 
-    input::placeholder,
-    textarea::placeholder {
-        color: var(--color-gray-400);
-    }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 
-    button:not(:disabled),
-    [role="button"]:not(:disabled) {
-        cursor: pointer;
-    }
+  dialog {
+    margin: auto;
+  }
 
-    dialog {
-        margin: auto;
-    }
+  main {
+    display: block;
+    background-color: var(--color-background);
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+
+  table {
+    @apply w-full border-collapse;
+  }
+
+  thead {
+    @apply bg-slate-50/60;
+  }
+
+  thead tr {
+    @apply border-b border-slate-100;
+  }
+
+  th {
+    @apply px-4 py-2.5 text-left text-sm font-bold text-slate-500;
+  }
+
+  tbody tr {
+    @apply border-b border-slate-100 transition-colors hover:bg-slate-50/50;
+  }
+
+  tbody tr:last-child {
+    @apply border-b-0;
+  }
+
+  td {
+    @apply px-4 py-3 align-top text-sm text-slate-600;
+  }
 }
 
 @layer components {
-    .container {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 430px;
-    }
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 430px;
+  }
 
+  .router-link-active {
+    @apply bg-gradient-to-r from-indigo-500 to-blue-600;
+  }
+
+  .router-link-exact-active {
+    @apply bg-gradient-to-r from-indigo-500 to-blue-600 font-semibold;
+  }
+
+  .form__group {
+    @apply mb-5;
+  }
+
+  .form__label {
+    @apply mb-2 block text-sm font-medium text-slate-700;
+  }
+
+  .form__control {
+    @apply block w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition
+    placeholder:text-slate-400
+    focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20
+    disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-500;
+  }
+
+  .base__button {
+    @apply inline-flex items-center justify-center gap-2 rounded px-4 py-2.5 text-sm font-medium
+    bg-primary text-white
+    transition-all duration-200
+    hover:bg-primary/90
+    focus:outline-none
+    disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50;
+  }
 }

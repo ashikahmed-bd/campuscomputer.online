@@ -1,12 +1,13 @@
 export default defineNuxtPlugin(() => {
   const api = $fetch.create({
-    baseURL: "https://campus.buyzin.com", //http://127.0.0.1:8000 https://campus.buyzin.com
+    baseURL: "https://campus.buyzin.com", // http://127.0.0.1:8000 https://campus.buyzin.com
 
     onRequest({ options }) {
       const authStore = useAuthStore();
       const cartToken = useCartToken();
 
       options.headers = new Headers(options.headers);
+      options.headers.set("Accept", "application/json");
       options.headers.set("X-Source", "Web");
 
       if (authStore.token) {

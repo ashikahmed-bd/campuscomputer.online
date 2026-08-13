@@ -1,0 +1,16 @@
+export default defineNuxtRouteMiddleware(async (to) => {
+  const authStore = useAuthStore();
+
+  if (!authStore.token) {
+    return navigateTo("/auth/login");
+  }
+
+  if (!authStore.user) {
+    try {
+      await authStore.getProfile();
+    } catch (e) {
+      authStore.logout?.();
+      return navigateTo("/auth/login");
+    }
+  }
+});

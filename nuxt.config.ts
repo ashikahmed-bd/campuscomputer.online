@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
+    '@nuxt/image',
   ],
 
   vite: {
@@ -27,7 +28,7 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       bodyAttrs: {
-        class: 'antialiased min-h-screen bg-gray-950 placeholder:text-placeholder font-sans',
+        class: 'antialiased min-h-screen font-body',
       },
     },
   },

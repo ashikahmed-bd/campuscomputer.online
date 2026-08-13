@@ -33,6 +33,7 @@ export const useCartStore = defineStore("cart", {
 
     async addItem(payload) {
       const { $api } = useNuxtApp();
+      this.loading = true;
       try {
         const response = await $api("/api/cart", {
           method: "POST",
@@ -42,6 +43,8 @@ export const useCartStore = defineStore("cart", {
         return response;
       } catch (error) {
         throw error;
+      } finally {
+        this.loading = false;
       }
     },
 
