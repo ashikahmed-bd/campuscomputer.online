@@ -1,5 +1,6 @@
 <script setup>
 const route = useRoute();
+const toast = useToast();
 const paymentStore = usePaymentStore();
 
 const files = ref([]);
@@ -15,7 +16,13 @@ const upload = async () => {
     form.append("files[]", file);
   });
 
-  await paymentStore.pay(route.params.id, form);
+  const response = await paymentStore.pay(route.params.id, form);
+
+  if (!response.success) {
+    toast.add({
+      title: response.message,
+    });
+  }
 };
 </script>
 
