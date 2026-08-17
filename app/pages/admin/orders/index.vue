@@ -54,13 +54,9 @@ onMounted(() => {
           ফিল্টার
         </button>
       </div>
-    </div>
-
-    <div class="overflow-hidden rounded-xl border border-border bg-white">
       <div class="border-b border-slate-100 px-4 py-4">
         <h2 class="text-sm font-bold text-slate-800">অর্ডার তালিকা</h2>
       </div>
-
       <div class="overflow-x-auto">
         <table>
           <thead>
@@ -100,13 +96,6 @@ onMounted(() => {
               >
                 স্ট্যাটাস
               </th>
-
-              <th
-                class="px-3 py-3 text-left text-xs font-semibold text-slate-600"
-              >
-                পেমেন্ট
-              </th>
-
               <th
                 class="px-3 py-3 text-center text-xs font-semibold text-slate-600"
               >
@@ -146,7 +135,7 @@ onMounted(() => {
               </td>
 
               <td class="px-3 py-3">
-                <p class="max-w-[180px] truncate text-sm text-slate-600">
+                <p class="max-w-xs truncate text-sm text-slate-600">
                   {{ order.address }}
                 </p>
               </td>
@@ -184,23 +173,6 @@ onMounted(() => {
               </td>
 
               <td class="px-3 py-3">
-                <span
-                  class="inline-flex rounded-full px-2.5 py-1 text-xs font-medium"
-                  :class="{
-                    'bg-amber-50 text-amber-700':
-                      order.payment_status === 'pending',
-
-                    'bg-green-50 text-green-700':
-                      order.payment_status === 'paid',
-
-                    'bg-red-50 text-red-700': order.payment_status === 'failed',
-                  }"
-                >
-                  {{ order.payment_status }}
-                </span>
-              </td>
-
-              <td class="px-3 py-3">
                 <div class="flex items-center justify-center gap-1.5">
                   <NuxtLink
                     :to="`/admin/orders/${order.id}`"
@@ -216,52 +188,14 @@ onMounted(() => {
         </table>
       </div>
 
-      <div
-        class="flex flex-col gap-3 border-t border-slate-100 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
-      >
-        <p class="text-[10px] text-slate-400">
-          মোট 256 টি অর্ডার এর মধ্যে 1-10 টি দেখানো হচ্ছে
-        </p>
-
-        <div class="flex items-center gap-1">
-          <button
-            class="flex h-8 items-center rounded-md border border-slate-200 bg-white px-2.5 text-[10px] text-slate-500 hover:bg-slate-50"
-          >
-            পূর্ববর্তী
-          </button>
-
-          <button
-            class="flex h-8 w-8 items-center justify-center rounded-md bg-blue-600 text-[10px] font-semibold text-white"
-          >
-            1
-          </button>
-
-          <button
-            class="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-[10px] text-slate-600 hover:bg-slate-50"
-          >
-            2
-          </button>
-
-          <button
-            class="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-[10px] text-slate-600 hover:bg-slate-50"
-          >
-            3
-          </button>
-
-          <span class="px-1 text-xs text-slate-400"> ... </span>
-
-          <button
-            class="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 text-[10px] text-slate-600 hover:bg-slate-50"
-          >
-            26
-          </button>
-
-          <button
-            class="flex h-8 items-center rounded-md border border-slate-200 bg-white px-2.5 text-[10px] text-slate-500 hover:bg-slate-50"
-          >
-            পরবর্তী
-          </button>
-        </div>
+      <div class="flex justify-center py-8">
+        <UPagination
+          v-model:page="page"
+          show-edges
+          :sibling-count="1"
+          :total="orders?.meta?.total"
+          :items-per-page="orders?.meta?.per_page"
+        />
       </div>
     </div>
   </main>

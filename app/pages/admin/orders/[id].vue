@@ -10,6 +10,14 @@ const { order } = storeToRefs(orderStore);
 onMounted(() => {
   orderStore.show(route.params.id);
 });
+
+const completeOrder = (order) => {
+  if (!confirm("আপনি কি এই অর্ডারটি সম্পন্ন করতে চান?")) {
+    return;
+  }
+
+  orderStore.complete(order);
+};
 </script>
 
 <template>
@@ -26,10 +34,18 @@ onMounted(() => {
 
       <button
         type="button"
-        class="flex items-center gap-1.5 rounded bg-primary px-3 py-2.5 text-xs font-medium text-white transition hover:bg-primary/80"
+        :disabled="orderStore.loading"
+        @click="completeOrder(order.id)"
+        class="flex items-center gap-1.5 rounded bg-primary px-3 py-2.5 text-xs font-medium text-white transition hover:bg-primary/80 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        <UIcon name="i-lucide-circle-check-big" class="size-3.5" />
-        সম্পন্ন করুন
+        <UIcon
+          v-if="orderStore.loading"
+          name="i-lucide-loader-circle"
+          class="size-3.5 animate-spin"
+        />
+        <UIcon v-else name="i-lucide-circle-check-big" class="size-3.5" />
+
+        {{ orderStore.loading ? "সম্পন্ন হচ্ছে..." : "সম্পন্ন করুন" }}
       </button>
     </div>
 

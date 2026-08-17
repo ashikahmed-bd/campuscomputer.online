@@ -39,6 +39,22 @@ export const useOrderStore = defineStore("order", {
       }
     },
 
+    async complete(order) {
+      const { $api } = useNuxtApp();
+      try {
+        this.loading = true;
+        await $api(`/api/v1/orders/${order}/complete`, {
+          method: "PATCH",
+        });
+        return navigateTo("/admin/orders");
+      } catch (error) {
+        this.errors = error?.response?._data?.errors;
+        throw error;
+      } finally {
+        this.loading = false;
+      }
+    },
+
     async getOrders() {
       const { $api } = useNuxtApp();
       try {

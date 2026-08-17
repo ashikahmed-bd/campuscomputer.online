@@ -66,14 +66,14 @@ const clear = async () => {
     <ErrorState v-else-if="error" @retry="refresh" />
 
     <template v-else-if="cart">
-      <div class="sticky top-0 z-20 bg-white border-b">
-        <div class="px-4 h-14 flex items-center justify-between">
+      <div class="sticky top-0 z-20">
+        <div class="flex items-center justify-between py-2">
           <h1 class="text-lg font-bold">My Cart</h1>
           <button @click="clear" class="text-danger text-sm">Clear</button>
         </div>
       </div>
 
-      <div class="space-y-4 p-4">
+      <div class="space-y-4">
         <template v-if="cart?.items.length">
           <div
             v-for="item in cart?.items"
@@ -136,18 +136,10 @@ const clear = async () => {
             </div>
           </div>
 
-          {{ error }}
-
           <div class="rounded-2xl bg-white space-y-4 px-4 py-4">
-            <div class="block">
-              <h2 class="text-lg font-semibold text-gray-900">
-                Delivery Information
-              </h2>
-
-              <p class="mt-1 text-sm text-gray-500">
-                Please provide your contact details for order delivery.
-              </p>
-            </div>
+            <h2 class="text-lg font-semibold text-gray-900">
+              Delivery Information
+            </h2>
 
             <div class="block">
               <label
@@ -215,38 +207,29 @@ const clear = async () => {
             </div>
           </div>
 
-          <div class="rounded-2xl bg-white p-4 space-y-2.5">
-            <label class="text-sm font-medium text-gray-700">
-              Coupon Code
-            </label>
-            <div class="relative">
-              <input
-                v-model="coupon"
-                type="text"
-                placeholder="Enter coupon code"
-                class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 pr-24 py-2.5 focus:border-primary focus:bg-white focus:outline-none"
-              />
-
-              <button
-                @click="applyCoupon"
-                :disabled="!coupon"
-                class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 rounded-lg bg-primary text-white text-sm font-medium disabled:opacity-50"
-              >
-                Apply
-              </button>
-            </div>
-
-            <p v-if="cart.coupon" class="text-sm text-green-600 font-medium">
-              Coupon
-              <span class="font-semibold">
-                {{ cart.coupon.code }}
-              </span>
-              applied successfully.
-            </p>
-          </div>
-
-          <div class="bg-white p-4">
+          <div class="bg-white rounded-xl p-4">
             <div class="space-y-4">
+              <div class="">
+                <label class="text-sm font-medium text-gray-700">
+                  Coupon Code
+                </label>
+                <div class="relative">
+                  <input
+                    v-model="coupon"
+                    type="text"
+                    placeholder="Enter coupon code"
+                    class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 pr-24 py-2.5 focus:border-primary focus:bg-white focus:outline-none"
+                  />
+
+                  <button
+                    @click="applyCoupon"
+                    :disabled="!coupon"
+                    class="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 rounded-lg bg-primary text-white text-sm font-medium disabled:opacity-50"
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
               <div class="space-y-2">
                 <div class="flex justify-between text-sm">
                   <span>Subtotal</span>

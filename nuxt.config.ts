@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       bodyAttrs: {
-        class: 'antialiased min-h-screen font-body',
+        class: 'antialiased min-h-screen font-body bg-dark',
       },
     },
   },

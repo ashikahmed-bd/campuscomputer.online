@@ -52,7 +52,7 @@
         </NuxtLink>
 
         <NuxtLink
-          to="/admin/reports"
+          to="#"
           class="flex items-center gap-4 rounded px-4 py-2.5 text-sm text-white hover:bg-white/10 hover:text-white"
         >
           <UIcon name="i-lucide-chart-no-axes-combined" class="size-5" />
@@ -60,7 +60,7 @@
         </NuxtLink>
 
         <NuxtLink
-          to="/admin/settings"
+          to="#"
           class="flex items-center gap-4 rounded px-4 py-2.5 text-sm text-white hover:bg-white/10 hover:text-white"
         >
           <UIcon name="i-lucide-settings" class="size-5" />
@@ -115,7 +115,7 @@
         </div>
       </header>
 
-      <div class="min-h-svh bg-slate-300 p-4">
+      <div class="min-h-svh bg-slate-50 p-4">
         <slot />
       </div>
     </div>

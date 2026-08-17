@@ -24,11 +24,20 @@ const addToCart = async (variant) => {
 
   navigateTo("/cart");
 };
+
+useSeoMeta({
+  title: "Printing, Photocopy & Binding Services | Campus Computer",
+  description:
+    "Get reliable printing, photocopy, and binding services for assignments, projects, reports, documents, and other academic or professional needs at Campus Computer.",
+  keywords:
+    "printing service, photocopy service, binding service, assignment printing, project printing, document photocopy, project binding, Campus Computer",
+  robots: "index, follow",
+});
 </script>
 
 <template>
-  <main class="bg-gray-100">
-    <div class="bg-white p-4 border-b border-border">
+  <main>
+    <div class="border-b border-border py-2">
       <h1 class="text-2xl font-bold">
         {{ service?.data?.name }}
       </h1>
@@ -44,7 +53,7 @@ const addToCart = async (variant) => {
       Failed to load service.
     </div>
 
-    <div v-else class="p-4">
+    <template v-else>
       <div
         v-for="variant in service.data.variants"
         :key="variant.id"
@@ -119,6 +128,6 @@ const addToCart = async (variant) => {
           <span>{{ cartStore.loading ? "Adding..." : "Add to Cart" }}</span>
         </button>
       </div>
-    </div>
+    </template>
   </main>
 </template>
