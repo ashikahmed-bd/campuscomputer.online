@@ -105,6 +105,7 @@ export const useCartStore = defineStore("cart", {
     },
 
     async checkout(payload) {
+      this.loading = true;
       try {
         const { $api } = useNuxtApp();
 
@@ -118,6 +119,8 @@ export const useCartStore = defineStore("cart", {
         return response;
       } catch (error) {
         throw error;
+      } finally {
+        this.loading = false;
       }
     },
   },

@@ -251,12 +251,12 @@ const clear = async () => {
                 </div>
               </div>
 
-              <button
+              <BaseButton
+                :loading="cartStore.loading"
                 @click="checkout"
-                class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold active:scale-95 transition"
+                class="w-full"
+                >Confirm</BaseButton
               >
-                Confirm
-              </button>
             </div>
           </div>
         </template>
